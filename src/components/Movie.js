@@ -68,13 +68,13 @@ const Movie = (props) => {
                 >
                   Edit
                 </Link>
-                <span className="delete">
+                <Link to={`/movies/delete/${movie.id}`} className="delete">
                   <input
                     type="button"
                     className="m-2 btn btn-danger"
                     value="Delete"
                   />
-                </span>
+                </Link>
               </section>
             </div>
           </div>
