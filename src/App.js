@@ -14,6 +14,8 @@ import EditMovieForm from "./components/EditMovieForm";
 
 import DeleteMovieModal from "./components/DeleteMovieModal";
 
+import AddMovieForm from "./components/AddMovieForm";
+
 const App = (props) => {
   const [movies, setMovies] = useState([]);
   const [favoriteMovies, setFavoriteMovies] = useState([]);
@@ -27,7 +29,7 @@ const App = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [movies]);
 
   const deleteMovie = (id) => {
     axios
@@ -62,6 +64,8 @@ const App = (props) => {
               path="movies/delete/:id"
               element={<DeleteMovieModal deleteMovie={deleteMovie} />}
             />
+
+            <Route path="/movies/add" element={<AddMovieForm />} />
 
             <Route path="/" element={<Navigate to="/movies" />} />
           </Routes>
